@@ -1,4 +1,4 @@
-package com.example.gps;
+package com.example.mjm;
 
 import org.junit.Test;
 
