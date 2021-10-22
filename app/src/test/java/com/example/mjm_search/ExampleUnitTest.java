@@ -1,4 +1,4 @@
-package com.example.mjm;
+package com.example.mjm_search;
 
 import org.junit.Test;
 
