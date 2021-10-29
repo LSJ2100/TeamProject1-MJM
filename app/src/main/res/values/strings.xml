@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">mjm_search</string>
+    <string name="app_name" translatable="false">MJM-app</string>
+    <string name="title_activity_maps" translatable="false">MJM</string>
 </resources>
