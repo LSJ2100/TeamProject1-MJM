@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:background="#657C7C"
             android:text="검색"
+            android:onClick="isSearch"
 
             tools:ignore="TextContrastCheck" />
 
@@ -72,6 +73,5 @@
     </LinearLayout>
 
             </fragment>
-
 
 </LinearLayout>
