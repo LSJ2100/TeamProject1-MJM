@@ -1,7 +1,6 @@
-package com.example.mjm_search;
+package com.example.MJM;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

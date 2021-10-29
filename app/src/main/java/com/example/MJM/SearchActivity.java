@@ -1,4 +1,4 @@
-package com.example.mjm_search;
+package com.example.MJM;
 
 import androidx.appcompat.app.AppCompatActivity;
 
