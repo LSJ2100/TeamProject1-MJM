@@ -20,7 +20,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextView"
@@ -35,9 +36,8 @@
             android:layout_height="wrap_content"
             android:background="#657C7C"
             android:text="검색"
-            android:onClick="isSearch"
-
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"/>
+            //android:onClick="isSearch"
 
     </LinearLayout>
 
