@@ -43,7 +43,8 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
         autoCompleteTextView.setAdapter((new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, list)));
         //AutoCompleteTextView에 adapter 연결
 
-        Button searchButton = (Button) findViewById(R.id.searchButton);
+        Button searchButton = (Button) findViewById(R.id.search_button);
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
