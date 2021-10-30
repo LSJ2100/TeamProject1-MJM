@@ -14,7 +14,7 @@ package="com.example.MJM">
 
     <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="API키"/>
+        android:value="AIzaSyATwCkRRFLoNHP1AAYAngOEyrVJRxJrF1I"/>
 
     <activity
         android:name="com.example.MJM.SearchActivity"

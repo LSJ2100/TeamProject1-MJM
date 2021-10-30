@@ -37,7 +37,6 @@
             android:background="#657C7C"
             android:text="검색"
             tools:ignore="TextContrastCheck"/>
-            //android:onClick="isSearch"
 
     </LinearLayout>
 
