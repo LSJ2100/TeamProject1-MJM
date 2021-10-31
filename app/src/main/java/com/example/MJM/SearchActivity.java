@@ -41,10 +41,18 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
     Button searchButton;
     String room_num;
     /////////////// for Googlemap API
+    Button convBtn;    //편의점 버튼
+    Button toiletBtn;  //화장실 버튼
+    Button bankBtn;    //은행 버튼
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        convBtn = (Button)findViewById(R.id.convBtn);
+        toiletBtn = (Button)findViewById(R.id.toiletBtn);
+        bankBtn = (Button)findViewById(R.id.bankBtn);
 
         list = new ArrayList<String>(); //리스트 생성
         settingList(); //리스트에 데이터(강의실번호)를 추가한다
@@ -75,13 +83,39 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
 
                 if((room_num.equals(list.get(0)))||(room_num.equals(list.get(9)))||(room_num.equals(list.get(10)))||(room_num.equals(list.get(11)))||(room_num.equals(list.get(12)))
                         ||(room_num.equals(list.get(13)))||(room_num.equals(list.get(15)))||(room_num.equals(list.get(16)))||(room_num.equals(list.get(17)))){
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[2], longitude[2])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[2], longitude[2]))); //Y1~~~
                 }
                 if(room_num.equals(list.get(18))){
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[12], longitude[12])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[12], longitude[12]))); //Y5101
                 }
             }
         });
+
+        convBtn.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[17], longitude[17])));
+            }
+        });
+        toiletBtn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[1], longitude[1])));
+
+            }
+        });
+        bankBtn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[16], longitude[16])));
+
+            }
+        });
+
+
 
 //        binding = ActivitySearchBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());

@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 
-public class ConvActivity extends AppCompatActivity {
+public class ConvActivity extends SearchActivity {
 
     Button convBtn;    //편의점 버튼
     Button toiletBtn;  //화장실 버튼
@@ -24,19 +22,15 @@ public class ConvActivity extends AppCompatActivity {
         this.s = s;
     }
 
-//    boolean isPushedConv = true;    //편의점 버튼이 눌렸는지 확인하기 위한 변수
-//    boolean isPushedtoilet = true;  //화장실 버튼이 눌렸는지 확인하기 위한 변수
-//    boolean isPushedbank = true;    //은행 버튼이 눌렸는지 확인하기 위한 변수
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conv);
 
         //아이디 연결
-        convBtn = findViewById(R.id.convBtn);
-        toiletBtn = findViewById(R.id.toiletBtn);
-        bankBtn = findViewById(R.id.bankBtn);
+        convBtn = (Button)findViewById(R.id.convBtn);
+        toiletBtn = (Button)findViewById(R.id.toiletBtn);
+        bankBtn = (Button)findViewById(R.id.bankBtn);
 
         convBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
