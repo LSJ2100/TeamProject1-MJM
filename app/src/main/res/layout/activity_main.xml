@@ -69,22 +69,6 @@
             android:translationY="75dp"/>
         <!--            여기 안에 화장실,카페,복사실 버튼 넣기-->
 
-        <!--<Button
-            android:id="@+id/zoomInBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:translationY="75dp"
-            tools:ignore="DuplicateIds" />
-
-        <Button
-            android:id="@+id/zoomOutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:translationY="75dp"
-            tools:ignore="DuplicateIds" />-->
-
     </LinearLayout>
 
             </fragment>

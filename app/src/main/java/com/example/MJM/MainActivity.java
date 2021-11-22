@@ -19,9 +19,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import android.widget.CheckBox;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,8 +60,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         cafeBtn = (Button)findViewById(R.id.toiletBtn);
         printerBtn = (Button)findViewById(R.id.bankBtn);
         //편의시설 버튼 xml과 연결.
-
-
 
         list = new ArrayList<String>(); //리스트 생성
         settingList(); //리스트에 데이터(강의실번호)를 추가한다
