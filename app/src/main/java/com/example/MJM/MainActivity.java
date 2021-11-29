@@ -161,26 +161,62 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
         convBtn.setOnClickListener(new Button.OnClickListener() {
+            int numClicked = 0;  //버튼이 눌린 횟수를 확인하기 위한 변수
+
             @Override
             public void onClick(View view) {
-
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[17], longitude[17])));
+                if(numClicked == 0){   //버튼이 눌린 횟수에 따라 각각 다른 위치의 편의시설을 표시
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[17], longitude[17])));
+                    numClicked = 1;
+                } else if(numClicked == 1) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[18], longitude[18])));
+                    numClicked = 2;
+                } else if(numClicked == 2) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[19], longitude[19])));
+                    numClicked = 3;
+                }
+                else {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[20], longitude[20])));
+                    numClicked = 0;
+                }
             }
         });
         cafeBtn.setOnClickListener(new Button.OnClickListener(){
+            int numClicked = 0;  //버튼이 눌린 횟수를 확인하기 위한 변수
+
             @Override
             public void onClick(View view){
-
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[22], longitude[22])));
-
+                if(numClicked == 0){   //버튼이 눌린 횟수에 따라 각각 다른 위치의 편의시설을 표시
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[21], longitude[21])));
+                    numClicked = 1;
+                } else if(numClicked == 1) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[22], longitude[22])));
+                    numClicked = 2;
+                } else {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[23], longitude[23])));
+                    numClicked = 0;
+                }
             }
         });
         printerBtn.setOnClickListener(new Button.OnClickListener(){
+            int numClicked = 0;  //버튼이 눌린 횟수를 확인하기 위한 변수
+
             @Override
             public void onClick(View view){
-
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[24], longitude[24])));
-
+                if(numClicked == 0){   //버튼이 눌린 횟수에 따라 각각 다른 위치의 편의시설을 표시
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[24], longitude[24])));
+                    numClicked = 1;
+                } else if(numClicked == 1) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[25], longitude[25])));
+                    numClicked = 2;
+                } else if(numClicked == 2) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[26], longitude[26])));
+                    numClicked = 3;
+                }
+                else {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[27], longitude[27])));
+                    numClicked = 0;
+                }
             }
         });
 
