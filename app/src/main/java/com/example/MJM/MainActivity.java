@@ -100,6 +100,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     Button convBtn;    //편의점 버튼
     Button cafeBtn;  //카페 버튼
     Button printerBtn;    //복사실 버튼
+    Button loc; //현재위치 버튼
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +125,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         convBtn = (Button)findViewById(R.id.convBtn);
         cafeBtn = (Button)findViewById(R.id.toiletBtn);
         printerBtn = (Button)findViewById(R.id.bankBtn);
+        loc = (Button)findViewById(R.id.loc);
         //편의시설 버튼 xml과 연결.
 
         list = new ArrayList<String>(); //리스트 생성
@@ -159,6 +161,17 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         });
+
+        loc.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                LatLng currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(currentLatLng, 18);
+                mMap.moveCamera(cameraUpdate);
+            }
+        });
+
 
         convBtn.setOnClickListener(new Button.OnClickListener() {
             int numClicked = 0;  //버튼이 눌린 횟수를 확인하기 위한 변수
@@ -314,7 +327,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         //카페 3곳 추가
         //복사실 4곳 추가
         
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude[0], longitude[0]), 18f));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude[0], longitude[0]), 18f));
         // 맨 처음 화면, 로비(명지대학교 정문)
 
         mUiSettings.setZoomControlsEnabled(true);   //확대 축소 버튼 활성화
@@ -420,8 +433,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         markerOptions.draggable(true);
 
         currentMarker = mMap.addMarker(markerOptions);
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(currentLatLng, 18);
-        mMap.moveCamera(cameraUpdate);
+        //CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(currentLatLng, 18);
+        //mMap.moveCamera(cameraUpdate);
     }
 
     public void setDefaultLocation(){

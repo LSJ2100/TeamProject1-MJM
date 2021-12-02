@@ -15,7 +15,7 @@ package="com.example.MJM">
 
     <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyATwCkRRFLoNHP1AAYAngOEyrVJRxJrF1I"/>
+        android:value="AIzaSyCVQmkMKSx0KueFrFmzivP6hUu9tptJu6Q"/>
 
     <activity
         android:name="com.example.MJM.MainActivity"
