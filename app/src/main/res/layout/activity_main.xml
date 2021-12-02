@@ -72,8 +72,8 @@
                 android:layout_width="90dp"
                 android:layout_height="50dp"
                 android:text="현재위치"
-                android:translationX="-320dp"
-                android:translationY ="-120dp"/>
+                android:translationX="-300dp"
+                android:translationY ="480dp"/>
 
         </LinearLayout>
     </FrameLayout>
