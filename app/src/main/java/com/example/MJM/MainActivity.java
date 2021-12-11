@@ -52,25 +52,7 @@ import java.util.Locale;
 import java.io.IOException;
 
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback {
-    private List<String> list;
-    //강의실 번호 데이터 넣은 리스트 변수
 
-    double[] latitude = {37.22475, 37.22146, 37.22246007484329, 37.22146, 37.22216, 37.22214, 37.22118, 37.22039, 37.21920, 37.21891,
-            37.22138, 37.22379, 37.22202, 37.22397, 37.22337, 37.22396, 37.22305, 37.22210, 37.21904, 37.22113, 37.22393, 37.22511,
-            37.22381, 37.22335, 37.22238, 37.21943, 37.22233, 37.22165};
-    double[] longitude = {127.18768, 127.18684, 127.18715734722015, 127.18684, 127.18850, 127.19080, 127.18851, 127.18534, 127.18296, 127.18375,
-            127.18926, 127.18687, 127.18758, 127.18752, 127.18716, 127.18183, 127.18688, 127.18851, 127.18250, 127.18862, 127.18186, 127.18717,
-            127.18166, 127.18747, 127.18851, 127.18260, 127.18673, 127.18776};
-    String[] title = {"자연캠퍼스", "제2공학관", "제1공학관", "창조예술관", "명진당", "예체능관", "함박관", "디자인조형센터", "제3공학관", "제4공학관",
-            "차세대과학관", "채플관", "제5공학관", "통학버스 승강장", "학생회관", "명덕관", "학생복지관(은행)", "명진당 지하(GS25)", "3공학관(CU)", "함박관(세븐일레븐)", "명덕관(GS25)",
-            "할리스커피", "명덕관 1층", "학생회관 카페", "명진당 4층", "3공학관 지하", "1공학관 1층", "5공학관 1층"};
-    String[] memo = {"정문입니다", "건물번호: Y8", "건물번호: Y", "건물번호: Y2", "건물번호: Y3", "건물번호: Y6", "건물번호: Y9", "건물번호: Y12", "건물번호: Y19", "건물번호: Y13",
-            "건물번호: Y23", "건물번호: Y22", "건물번호: Y5", "통학버스 승강장입니다.", "건물번호: Y1", "건물번호: Y31", "은행", "GS25", "CU", "세븐일레븐" ,"GS25", "HOLLYS", "명덕카페",
-            "카페", "복사실", "복사실", "복사실", "복사실"};
-    
-    // 위 데이타를 따로 데이타 클래스로 구현 요망
-
-///////////////////
     private GoogleMap mMap; // 구글 맵 참조
     private Marker currentMarker = null;
     private UiSettings mUiSettings;  //UI 컨트롤
@@ -102,6 +84,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     Button printerBtn;    //복사실 버튼
     Button loc; //현재위치 버튼
 
+    Data data = new Data();  //데이터 클래스 참조 변수
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,13 +112,13 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         loc = (Button)findViewById(R.id.loc);
         //편의시설 버튼 xml과 연결.
 
-        list = new ArrayList<String>(); //리스트 생성
-        settingList(); //리스트에 데이터(강의실번호)를 추가한다
+        data.list = new ArrayList<String>(); //리스트 생성
+        data.settingList(); //리스트에 데이터(강의실번호)를 추가한다
         //리스트 생성하고,검색될 데이터 추가
 
         final AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
         //AutoCompleteTextView : 자동완성 기능 (검색 창에 입력시 밑에 리스트에 넣어둔 강의실 번호가 자동완성으로 뜨게 됨)
-        autoCompleteTextView.setAdapter((new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, list)));
+        autoCompleteTextView.setAdapter((new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, data.list)));
         //AutoCompleteTextView에 adapter 연결
 
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -152,12 +136,12 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
 
-                if((room_num.equals(list.get(0)))||(room_num.equals(list.get(9)))||(room_num.equals(list.get(10)))||(room_num.equals(list.get(11)))||(room_num.equals(list.get(12)))
-                        ||(room_num.equals(list.get(13)))||(room_num.equals(list.get(15)))||(room_num.equals(list.get(16)))||(room_num.equals(list.get(17)))){
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[2], longitude[2]))); //Y1~~~
+                if((room_num.equals(data.list.get(0)))||(room_num.equals(data.list.get(9)))||(room_num.equals(data.list.get(10)))||(room_num.equals(data.list.get(11)))||(room_num.equals(data.list.get(12)))
+                        ||(room_num.equals(data.list.get(13)))||(room_num.equals(data.list.get(15)))||(room_num.equals(data.list.get(16)))||(room_num.equals(data.list.get(17)))){
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[2], data.longitude[2]))); //Y1~~~
                 }
-                if(room_num.equals(list.get(18))){
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[12], longitude[12]))); //Y5101
+                if(room_num.equals(data.list.get(18))){
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[12], data.longitude[12]))); //Y5101
                 }
             }
         });
@@ -179,17 +163,17 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 if(numClicked == 0){   //버튼이 눌린 횟수에 따라 각각 다른 위치의 편의시설을 표시
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[17], longitude[17])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[17], data.longitude[17])));
                     numClicked = 1;
                 } else if(numClicked == 1) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[18], longitude[18])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[18], data.longitude[18])));
                     numClicked = 2;
                 } else if(numClicked == 2) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[19], longitude[19])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[19], data.longitude[19])));
                     numClicked = 3;
                 }
                 else {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[20], longitude[20])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[20], data.longitude[20])));
                     numClicked = 0;
                 }
             }
@@ -200,13 +184,13 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view){
                 if(numClicked == 0){   //버튼이 눌린 횟수에 따라 각각 다른 위치의 편의시설을 표시
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[21], longitude[21])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[21], data.longitude[21])));
                     numClicked = 1;
                 } else if(numClicked == 1) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[22], longitude[22])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[22], data.longitude[22])));
                     numClicked = 2;
                 } else {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[23], longitude[23])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[23], data.longitude[23])));
                     numClicked = 0;
                 }
             }
@@ -217,17 +201,17 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view){
                 if(numClicked == 0){   //버튼이 눌린 횟수에 따라 각각 다른 위치의 편의시설을 표시
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[24], longitude[24])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[24], data.longitude[24])));
                     numClicked = 1;
                 } else if(numClicked == 1) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[25], longitude[25])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[25], data.longitude[25])));
                     numClicked = 2;
                 } else if(numClicked == 2) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[26], longitude[26])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[26], data.longitude[26])));
                     numClicked = 3;
                 }
                 else {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[27], longitude[27])));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[27], data.longitude[27])));
                     numClicked = 0;
                 }
             }
@@ -249,29 +233,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 //        }
 //        //mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[0], longitude[0])));
 //    }
-
-    public void settingList() { //검색에 사용될 데이터 리스트 추가
-        list.add("Y1234"); // for testing
-        list.add("Y2234");
-        list.add("Y3234");
-        list.add("Y4234");
-        list.add("Y5234");
-        list.add("Y6234");
-        list.add("Y7234");
-        list.add("Y8234");
-        list.add("Y9234");
-        list.add("Y10234"); // 9
-        list.add("Y11234");
-        list.add("Y12234");
-        list.add("Y13234");
-        list.add("Y14234");
-        list.add("Y15234");
-        list.add("Y1244");
-        list.add("Y1254");
-        list.add("Y1264"); //17th
-        list.add("Y5101"); // test 2, 18th 12tude
-        //리스트는 추가 가능
-    }
 
     public void onMapReady(GoogleMap googleMap) {
         Log.d(TAG, "onMapReady: ");
@@ -316,11 +277,11 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         for(int i = 0; i < 28; i++){
             MarkerOptions MJU = new MarkerOptions();
             MJU
-                    .position(new LatLng(latitude[i], longitude[i]))
+                    .position(new LatLng(data.latitude[i], data.longitude[i]))
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                     .alpha(0.5f)
-                    .title(title[i])
-                    .snippet(memo[i]);
+                    .title(data.title[i])
+                    .snippet(data.memo[i]);
             mMap.addMarker(MJU);
         }
         //마커 작업, 21개의 강의실만 되어있다.
@@ -438,7 +399,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void setDefaultLocation(){
-        LatLng DEFAULT_LOCATION = new LatLng(latitude[0], longitude[0]);
+        LatLng DEFAULT_LOCATION = new LatLng(data.latitude[0], data.longitude[0]);
         String markerTitle = "위치정보 없음";
         String markerSnippet = "위치 권한 허용 여부와 GPS 활성화 여부를 확인해주세요.";
 
