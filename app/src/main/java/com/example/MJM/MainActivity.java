@@ -735,6 +735,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         });
+        
         cafeBtn.setOnClickListener(new Button.OnClickListener(){ //카페
             int numClicked = 0;  //버튼이 눌린 횟수를 확인하기 위한 변수
 
@@ -917,23 +918,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-       // for(int i = 0; i < 28; i++){
-       //     MarkerOptions MJU = new MarkerOptions();
-       //     MJU
-       //             .position(new LatLng(data.latitude[i], data.longitude[i]))
-       //             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-       //             .alpha(0.5f)
-       //             .title(data.title[i])
-       //             .snippet(data.memo[i]);
-       //     mMap.addMarker(MJU);
-       // }
-        //마커 작업, 21개의 강의실만 되어있다.
-        //카페 3곳 추가
-        //복사실 4곳 추가
-        
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude[0], longitude[0]), 18f));
-        // 맨 처음 화면, 로비(명지대학교 정문)
-
+     
         mUiSettings.setZoomControlsEnabled(true);   //확대 축소 버튼 활성화
     }
 
