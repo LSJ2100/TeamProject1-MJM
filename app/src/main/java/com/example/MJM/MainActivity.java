@@ -797,14 +797,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-//    private void InSearch(String room_num){
-//        // 건물번호에 맞는 인덱스를 찾아야함 , 그 인덱스를 불러와서 좌표,건물이름,메모가져옴
-//        if(room_num.equals(list.get(1))){
-//            mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[3], longitude[3])));
-//        }
-//        //mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude[0], longitude[0])));
-//    }
-
     public void onMapReady(GoogleMap googleMap) {
         Log.d(TAG, "onMapReady: ");
 
