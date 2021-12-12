@@ -705,61 +705,84 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
 
-        convBtn.setOnClickListener(new Button.OnClickListener() {
+    
+        convBtn.setOnClickListener(new Button.OnClickListener() { //편의점
             int numClicked = 0;  //버튼이 눌린 횟수를 확인하기 위한 변수
 
             @Override
             public void onClick(View view) {
                 if(numClicked == 0){   //버튼이 눌린 횟수에 따라 각각 다른 위치의 편의시설을 표시
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[17], data.longitude[17])));
+                    LatLng room_marker = new LatLng(data.latitude[17], data.longitude[17]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("명진당 지하 (GS25) ").snippet("(지하 1층) 편의점 GS25 "));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker, 16));
                     numClicked = 1;
                 } else if(numClicked == 1) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[18], data.longitude[18])));
+                    LatLng room_marker = new LatLng(data.latitude[18], data.longitude[18]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("제 3공학관 (CU)").snippet("편의점 CU"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker,16));
                     numClicked = 2;
                 } else if(numClicked == 2) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[19], data.longitude[19])));
+                    LatLng room_marker = new LatLng(data.latitude[19], data.longitude[19]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("함박관 (세븐일레븐)").snippet("편의점 세븐일레븐"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker,16));
                     numClicked = 3;
                 }
                 else {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[20], data.longitude[20])));
+                    LatLng room_marker = new LatLng(data.latitude[20], data.longitude[20]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("명덕관 (GS25)").snippet("편의점 GS25"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker, 16));
                     numClicked = 0;
                 }
             }
         });
-        cafeBtn.setOnClickListener(new Button.OnClickListener(){
+        cafeBtn.setOnClickListener(new Button.OnClickListener(){ //카페
             int numClicked = 0;  //버튼이 눌린 횟수를 확인하기 위한 변수
 
             @Override
             public void onClick(View view){
                 if(numClicked == 0){   //버튼이 눌린 횟수에 따라 각각 다른 위치의 편의시설을 표시
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[21], data.longitude[21])));
+                    LatLng room_marker = new LatLng(data.latitude[21], data.longitude[21]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("할리스커피").snippet("HOLLYS"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker, 16));
                     numClicked = 1;
                 } else if(numClicked == 1) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[22], data.longitude[22])));
+                    LatLng room_marker = new LatLng(data.latitude[22], data.longitude[22]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("명덕관 1층").snippet("명덕카페"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker, 16));
                     numClicked = 2;
                 } else {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[23], data.longitude[23])));
+                    LatLng room_marker = new LatLng(data.latitude[23], data.longitude[23]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("학생회관 카페").snippet("카페"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker, 16));
                     numClicked = 0;
                 }
             }
         });
-        printerBtn.setOnClickListener(new Button.OnClickListener(){
+        printerBtn.setOnClickListener(new Button.OnClickListener(){ //
             int numClicked = 0;  //버튼이 눌린 횟수를 확인하기 위한 변수
 
             @Override
             public void onClick(View view){
                 if(numClicked == 0){   //버튼이 눌린 횟수에 따라 각각 다른 위치의 편의시설을 표시
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[24], data.longitude[24])));
+                    LatLng room_marker = new LatLng(data.latitude[24], data.longitude[24]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("명진당 4층").snippet("복사실"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker, 16));
                     numClicked = 1;
                 } else if(numClicked == 1) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[25], data.longitude[25])));
+                    LatLng room_marker = new LatLng(data.latitude[25], data.longitude[25]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("제 3공학관 지하").snippet("복사실"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker, 16));
                     numClicked = 2;
                 } else if(numClicked == 2) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[26], data.longitude[26])));
+                    LatLng room_marker = new LatLng(data.latitude[26], data.longitude[26]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("제 1공학관 1층").snippet("복사실"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker, 16));
                     numClicked = 3;
                 }
                 else {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(data.latitude[27], data.longitude[27])));
+                    LatLng room_marker = new LatLng(data.latitude[27], data.longitude[27]);
+                    mMap.addMarker(new MarkerOptions().position(room_marker).title("제 5공학관 1층").snippet("복사실"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(room_marker, 16));
                     numClicked = 0;
                 }
             }
